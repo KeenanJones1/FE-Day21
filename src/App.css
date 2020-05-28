@@ -1,38 +1,51 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.DashBoard {
+  background-color: aqua;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.Home{
+  background-color: blue;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Login{
+  background-color: blueviolet;
 }
 
-.App-link {
-  color: #61dafb;
+.Signup{
+  background-color: darkgreen;
+  align-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.sign-up-field{
+  display: inline-block;
+  margin: 3vw;
+  width: 60vw;
+  height: 5vh;
+  font-size: 140%;
+  
+  /* align-self: center; */
 }
+
+
+#sign-up-button{
+display: inline-block;
+background-color: lightblue;
+height: 7vh;
+width: 20vw;
+margin: 5%;
+}
+
+
