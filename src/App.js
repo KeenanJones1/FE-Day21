@@ -1,6 +1,7 @@
 import React from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {connect} from 'react-redux'
 import Home from './components/Home'
 import Signup from './components/Signup'
 import Signin from './components/Signin'
@@ -25,7 +26,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          {/* <Route exact path='/' render= { (props) => <Home {...props} />} />  */}
+          <Route exact path='/' render= { (props) => <Home {...props} />} /> 
           <Route exact path='/signup' render= { (props) => <Signup {...props} />} /> 
           <Route exact path='/signin' render= { (props) => <Signin {...props} />} /> 
           {/* <Route exact path='/' render= { (props) => <DashBoard {...props} />} />  */}
@@ -36,4 +37,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect()(App);

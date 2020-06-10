@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import { fetchUser } from '../actions/User'
 import withStyles from '@material-ui/core/styles/withStyles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -37,105 +39,136 @@ const styles = (theme) => ({
 
 
 class Signin extends React.Component {
-  constructor() {
-    super()
-  };
+  state = {
+    email: '',
+    password: '',
+  }
 
 
   goSignup = () => {
     this.props.history.push('/signup')
   }
 
+  handleInputChange = (event) => {
+      this.setState({
+        [event.target.name]: event.target.value
+      });
+
+  }
+
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    this.props.fetchUser(this.state)
+    // set Loading to true
+  }
+
+  handleLoading = () => {
+    if(this.props.loading === 'done'){
+      
+      localStorage.setItem('token', this.props.token)
+      this.props.history.push('/')
+      return(
+        <div>Done loading...</div>
+      )
+    }
+    else{
+      return(
+        <div>
+          Loading....
+        </div>
+      )
+      
+    }
+  }
+
 
   render() {
-    const {
-      classes
-    } = this.props
-
-    return ( <
-      Container component = "main"
-      maxWidth = "xs" >
-      <
-      CssBaseline / >
-      <
-      div className = {
-        classes.paper
-      } >
-      <
-      Avatar className = {
-        classes.avatar
-      } >
-      <
-      LockOutlinedIcon / >
-      <
-      /Avatar> <
-      Typography component = "h1"
-      variant = "h5" >
-      Sign in
-      <
-      /Typography> <
-      form className = {
-        classes.form
-      }
-      noValidate >
-      <
-      TextField variant = "outlined"
-      margin = "normal"
-      required fullWidth id = "email"
-      label = "Email Address"
-      name = "email"
-      autoComplete = "email"
-      autoFocus /
-      >
-      <
-      TextField variant = "outlined"
-      margin = "normal"
-      required fullWidth name = "password"
-      label = "Password"
-      type = "password"
-      id = "password"
-      autoComplete = "current-password" /
-      >
-      <
-      FormControlLabel control = {
-        < Checkbox value = "remember"
-        color = "primary" / >
-      }
-      label = "Remember me" /
-      >
-      <
-      Button type = "submit"
-      fullWidth variant = "contained"
-      color = "primary"
-      className = {
-        classes.submit
-      } >
-      Sign In <
-      /Button> <
-      Grid container >
-      <
-      Grid item >
-      <
-      Link href = "#"
-      onClick = {
-        this.goSignup
-      }
-      variant = "body2" > {
-        "Don't have an account? Sign Up"
-      } <
-      /Link> <
-      /Grid> <
-      /Grid> <
-      /form> <
-      /div> <
-      Box mt = {
-        8
-      } >
-      <
-      /Box> <
-      /Container>
-    );
+    const { classes } = this.props
+    console.log(this.props)
+    if(this.props.loading === false){
+      return ( 
+        <Container component = "main" maxWidth = "xs" >
+          <CssBaseline / >
+          <div className = { classes.paper} >
+            <Avatar className = { classes.avatar } >
+              < LockOutlinedIcon / >
+            </Avatar> 
+            <Typography component = "h1" variant = "h5" >
+              Sign in
+            </Typography> 
+              <form className = { classes.form } noValidate >
+    
+                <TextField variant = "outlined"
+                  value={this.state.email}
+                  margin = "normal"
+                  required fullWidth id = "email"
+                  label = "Email Address"
+                  name = "email"
+                  autoComplete = "email"
+                  autoFocus 
+                  onChange = { (event) => this.handleInputChange(event)}
+                />
+            
+                <TextField variant = "outlined"
+                  margin = "normal"
+                  required fullWidth name = "password"
+                  label = "Password"
+                  type = "password"
+                  id = "password"
+                  autoComplete = "current-password" 
+                  onChange = { (event) => this.handleInputChange(event)}
+                />
+    
+            <FormControlLabel control = { <Checkbox value = "remember" color = "primary" /> }
+                label = "Remember me" />
+              <Button type = "submit"
+                onClick={(event) => this.handleOnSubmit(event)}
+                fullWidth variant = "contained"
+                color = "primary"
+                className = { classes.submit}>
+                Sign In 
+              </Button> 
+    
+                <Grid container >
+                  <Grid item >
+                    <Link href = "#"
+                      onClick = {this.goSignup}
+                      variant = "body2" > { "Don't have an account? Sign Up"} 
+                    </Link> 
+                  </Grid> 
+                </Grid> 
+              </form> 
+          </div> 
+          <Box mt = {8}>
+            
+          </Box> 
+          </Container>
+        );
+    }
+    
+    else{
+      return(
+        this.handleLoading()
+      )
+    }
   }
 }
 
-export default withStyles(styles)(Signin)
+
+
+const mapStateToProps = (state) => {
+  const { users } = state
+  return{
+    loading: users.loading,
+    token: users.user.token
+  }
+}
+
+{/* const mapDispatchToProps = (dispatch) => {
+  return{
+    // fetchUser: () => dispatch(fetchUser()),
+    // signin: () => dispatch()
+  }
+} */}
+
+export default connect(mapStateToProps, {fetchUser})(withStyles(styles)(Signin))
