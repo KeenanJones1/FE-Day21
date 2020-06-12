@@ -1,8 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchInfo} from '../actions/User'
-import Habits  from '../containers/Habits.js'
-import Daily from '../containers/Daily.js'
+import HabitsContainer  from '../containers/HabitsContainer.js'
+import  Daily  from '../containers/Daily.js'
+import DashBoard  from '../containers/DashBoard.js'
+
+// MUI STUFF
+import { Grid } from '@material-ui/core'
 
 class Home extends React.Component{
   constructor(){
@@ -16,9 +20,19 @@ class Home extends React.Component{
   render(){
    return(
     <div className="Home">
-      Home has the infomation about the app and might just be a container component for login and signup
-      <Habits />
-      <Daily /> 
+      <Grid container spacing= {3}>
+        <Grid item xs={12}> 
+          <DashBoard />
+        </Grid>
+
+        <Grid item xs={6}>
+          <HabitsContainer habits={this.props.habits} tags={this.props.tags} />
+        </Grid>
+
+        <Grid item xs={6}>
+          <Daily daily={this.props.daily} /> 
+        </Grid>
+      </Grid>
     </div>
    )
   }
@@ -29,10 +43,11 @@ const mapStateToProps = (state) => {
   const { user } = state.users
   console.log(user)
   // const { state } = this.props.users
-  // return{
-  //   habits: state.habits,
-  //   dallies: state.dallies
-  // }
+  return{
+    tags: user.tags,
+    habits: user.habits,
+    daily: user.daily
+  }
 }
 
 

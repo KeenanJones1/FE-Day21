@@ -1,19 +1,18 @@
 import React from 'react';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Home from './components/Home'
 import Signup from './components/Signup'
 import Signin from './components/Signin'
-import DashBoard from './components/DashBoard'
 import './App.css';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 
 const theme = createMuiTheme({
   palette: {
-    primary: purple,
-    secondary: green,
+    primary: {main: '#486273', light: '#587E8C', contrastText: '#F2EC91'},
+    secondary: {main: '#A67449', light: '#D9A25F', contrastText: '#00000f'},
     textSecondary: 'green'
   },
   status: {
@@ -23,6 +22,7 @@ const theme = createMuiTheme({
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       <Router>
         <Switch>
@@ -34,6 +34,7 @@ function App() {
       </Router>
 
     </div>
+    </ThemeProvider>
   );
 }
 

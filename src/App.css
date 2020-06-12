@@ -6,24 +6,27 @@
 
 .App {
   text-align: center;
+  font-family: "Lato";
+  font-size: large;
+  font-weight: 600;
 }
 
 
 .DashBoard {
-  background-color: aqua;
 }
 
 
 .Home{
-  background-color: blue;
+  background-color: #587E8C;
+  height: 110vh;
+  color: #F2EC91;
+  background-image: ;
 }
 
 .Login{
-  background-color: blueviolet;
 }
 
 .Signup{
-  background-color: darkgreen;
   align-content: center;
 }
 
@@ -38,10 +41,13 @@
   /* align-self: center; */
 }
 
+h1{
+  font-family: 'Oswald' ;
+}
+
 
 #sign-up-button{
 display: inline-block;
-background-color: lightblue;
 height: 7vh;
 width: 20vw;
 margin: 5%;

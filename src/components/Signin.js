@@ -164,11 +164,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-{/* const mapDispatchToProps = (dispatch) => {
-  return{
-    // fetchUser: () => dispatch(fetchUser()),
-    // signin: () => dispatch()
-  }
-} */}
 
 export default connect(mapStateToProps, {fetchUser})(withStyles(styles)(Signin))

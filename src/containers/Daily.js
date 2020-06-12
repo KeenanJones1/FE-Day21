@@ -1,14 +1,15 @@
 import React from 'react'
 
 
-class Daily extends React.Component{
+class Daily extends React.Component {
 
 
 
- render(){
-  return(
-   <div>
-    Hello from Daily Habits
+ render() {
+  console.log(this.props)
+  return ( 
+   <div >
+   Daily is an presentational Components. 
    </div>
   )
  }
