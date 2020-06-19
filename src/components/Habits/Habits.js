@@ -4,6 +4,7 @@ import Habit from './Habit'
 
 // MUI STUFF
 import { Grid } from '@material-ui/core'
+import {withStyles} from '@material-ui/styles'
 
 
 
@@ -11,8 +12,6 @@ class Habits extends React.Component{
 
 
  render(){
-
-  console.log("HabitList", this.props.habits)
   const { habits } = this.props
 
 
@@ -22,26 +21,14 @@ class Habits extends React.Component{
      <Habit 
       key={habit.id}
       habit={habit}
-      // add/create tag dispatch here
      />
     )
    }
   )
 
 
-
-
-
-
-
- 
-
-
-
-
-
   return(
-   <Grid container >
+   <Grid container justify="space-evenly" alignItems="center" >
     <h1>Your Habits</h1> 
     {HabitList}
    </Grid>

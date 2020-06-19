@@ -23,6 +23,7 @@ const styles = theme => ({
 
 
 class HabitsContainer extends React.Component{
+  
  render(){
   console.log("Habits", this.props)
 

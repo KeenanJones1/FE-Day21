@@ -1,20 +1,14 @@
 export const fetchUser = (state) => {
- // console.log(state)
- let reqObj = {
+const token = localStorage.getItem('token')
+let reqObj = {
   method: 'POST', 
-  headers: {
-   'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(state)
- }
+  headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
+  body: JSON.stringify(state)}
 
-  return (dispatch) => {
-   dispatch({type: 'FETCH_USER'});
+  return (dispatch) => { dispatch({type: 'FETCH_USER'});
     fetch('http://localhost:3000/auth',reqObj)
     .then( resp => resp.json() )
-    .then(token => 
-     dispatch({type: 'SIGN_IN', token})
-     // console.log(token)
+    .then(token => dispatch({type: 'SIGN_IN', token})
     )
   }
 }

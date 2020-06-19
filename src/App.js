@@ -6,14 +6,12 @@ import Home from './components/Home'
 import Signup from './components/Signup'
 import Signin from './components/Signin'
 import './App.css';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+
 
 const theme = createMuiTheme({
   palette: {
     primary: {main: '#486273', light: '#587E8C', contrastText: '#F2EC91'},
     secondary: {main: '#A67449', light: '#D9A25F', contrastText: '#00000f'},
-    textSecondary: 'green'
   },
   status: {
     danger: 'orange',

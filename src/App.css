@@ -9,6 +9,7 @@
   font-family: "Lato";
   font-size: large;
   font-weight: 600;
+  height: '100vh'
 }
 
 
@@ -18,12 +19,13 @@
 
 .Home{
   background-color: #587E8C;
-  height: 110vh;
+  height: 140vh;
   color: #F2EC91;
   background-image: ;
 }
 
 .Login{
+  
 }
 
 .Signup{

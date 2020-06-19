@@ -22,7 +22,7 @@ class Home extends React.Component{
     <div className="Home">
       <Grid container spacing= {3}>
         <Grid item xs={12}> 
-          <DashBoard />
+          {/* <DashBoard /> */}
         </Grid>
 
         <Grid item xs={6}>
@@ -30,7 +30,7 @@ class Home extends React.Component{
         </Grid>
 
         <Grid item xs={6}>
-          <Daily daily={this.props.daily} /> 
+          {/* <Daily daily={this.props.daily} />  */}
         </Grid>
       </Grid>
     </div>
@@ -41,8 +41,7 @@ class Home extends React.Component{
 
 const mapStateToProps = (state) => {
   const { user } = state.users
-  console.log(user)
-  // const { state } = this.props.users
+  
   return{
     tags: user.tags,
     habits: user.habits,

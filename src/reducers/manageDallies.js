@@ -11,7 +11,7 @@ export default function manageUsers(state = {
 
      }
 
-     case 'COMPLETE_DALLIES': 
+     case 'COMPLETE_DAILY_HABITS': 
      return{
 
      }
