@@ -1,73 +1,86 @@
 import React from 'react';
-import {connect} from 'react-redux'
-import {addHabits} from '../../actions/Habits'
+import {
+  connect
+} from 'react-redux'
+import {
+  addHabits
+} from '../../actions/Habits'
 
 // MUI STUFF
-import { Grid, TextField, Button, Select, Switch, MenuItem, FormControlLabel} from '@material-ui/core'
+import {
+  Grid,
+  TextField,
+  Button,
+  Select,
+  Switch,
+  MenuItem,
+  FormControlLabel
+} from '@material-ui/core'
 
 
-class HabitsInput extends React.Component{
-state = {
-  title: '',
-  difficulty: '',
-  note: '',
-  type: 'BadHabit',
-  user_id: ''
-}
+class HabitsInput extends React.Component {
+    state = {
+      title: '',
+      difficulty: '',
+      note: '',
+      type: 'BadHabit',
+      user_id: ''
+    }
 
 
- 
 
 
-handleSwitch = () => {
-if (this.state.type === 'BadHabit'){
-  this.setState({
-  type: 'GoodHabit'
-  })
-}
 
-else{
-  this.setState({
-  type: 'BadHabit'
-  })
-}
-}
+    handleSwitch = () => {
+      if (this.state.type === 'BadHabit') {
+        this.setState({
+          type: 'GoodHabit'
+        })
+      } else {
+        this.setState({
+          type: 'BadHabit'
+        })
+      }
+    }
 
-handleNote = (event) => {
-this.setState({
-  note: event.target.value
-})
-}
+    handleNote = (event) => {
+      this.setState({
+        note: event.target.value
+      })
+    }
 
-  handleTitle = (event) => {
-    this.setState({
-    title: event.target.value
-    })
-  }
+    handleTitle = (event) => {
+      this.setState({
+        title: event.target.value
+      })
+    }
 
-handleSelect = (event) => {
-  this.setState({
-    difficulty: event.target.value
-  })
-}
+    handleSelect = (event) => {
+      this.setState({
+        difficulty: event.target.value
+      })
+    }
 
-handleSubmit = () => {
+    handleSubmit = () => {
 
-  const newState = {
-    state: {...this.state, user_id: this.props.user_id}
-  }
+      const newState = {
+        state: {
+          ...this.state,
+          user_id: this.props.user_id
+        }
+      }
 
-  this.setState({
-    title: ' ',
-    difficulty: '',
-    note: '',
-    type: 'BadHabit',
-    user_id: ''
-  })
+      this.setState({
+        title: '',
+        difficulty: '',
+        note: '',
+        type: 'BadHabit',
+        user_id: ''
+      })
 
 
-  this.props.addHabits(newState.state)
-}
+      this.props.addHabits(newState.state)
+    }
 
 render(){
   return(
@@ -76,6 +89,7 @@ render(){
     Create New Habit 
     </h1>
     <TextField required name="title" 
+    value={this.state.title}
     color="secondary"
     label="Title" onChange={(event) => this.handleTitle(event)}/>
 
@@ -112,9 +126,13 @@ render(){
 };
 
 
-const mapStateToProps = (state) => {
-  return{user_id: state.users.user.id}
-}
+    const mapStateToProps = (state) => {
+      return {
+        user_id: state.users.user.id
+      }
+    }
 
 
-export default connect(mapStateToProps, {addHabits})(HabitsInput);
+    export default connect(mapStateToProps, {
+      addHabits
+    })(HabitsInput);

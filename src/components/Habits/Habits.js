@@ -15,10 +15,10 @@ class Habits extends React.Component{
   const { habits } = this.props
 
 
-  const HabitList = habits.map(
+  const Habits = habits.map(
    habit => {
     return(
-     <Habit 
+     <Grid container component={Habit} 
       key={habit.id}
       habit={habit}
      />
@@ -28,9 +28,9 @@ class Habits extends React.Component{
 
 
   return(
-   <Grid container justify="space-evenly" alignItems="center" >
+   <Grid container alignItems='stretch'>
     <h1>Your Habits</h1> 
-    {HabitList}
+    {Habits}
    </Grid>
   )
  }

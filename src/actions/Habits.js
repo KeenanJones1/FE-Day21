@@ -25,3 +25,24 @@ export const deleteHabits = (id) => {
     .then(habits => dispatch({type: 'SET_HABITS', habits}))
   }
 }
+
+export const editHabit = (state, id) => {
+  let token = localStorage.getItem('token')
+  let reqObj = {
+    method: 'PATCH', 
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
+    body: JSON.stringify({habit: state})
+  }
+
+  return (dispatch) => {
+    fetch(`http://localhost:3000/habits/${id}`, reqObj)
+    .then(resp => resp.json())
+    .then( habits => dispatch({type: 'SET_HABITS', habits}))
+  }
+
+
+
+
+
+
+}

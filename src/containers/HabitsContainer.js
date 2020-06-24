@@ -9,13 +9,23 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 
 const styles = theme => ({
-  // container = {
+  container: {
 
-  // },
+  },
 
-  // title = {
+  title: {
 
-  // },
+  },
+
+  input: {
+
+  },
+
+  habits: {
+  
+  }
+
+
 
   
 
@@ -32,11 +42,11 @@ class HabitsContainer extends React.Component{
 
    <div>
     <Grid container spacing={9}>
-     <Grid item xs={12}>
+     <Grid item xs={12} className={classes.input}>
       <HabitInput />
      </Grid>
     
-     <Grid item xs={6}>
+     <Grid item xs={6} className={classes.habits}>
       <Habits habits={this.props.habits}/>
      </Grid>
     </Grid>

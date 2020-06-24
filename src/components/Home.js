@@ -21,17 +21,13 @@ class Home extends React.Component{
    return(
     <div className="Home">
       <Grid container spacing= {3}>
-        <Grid item xs={12}> 
-          {/* <DashBoard /> */}
-        </Grid>
+        
 
         <Grid item xs={6}>
           <HabitsContainer habits={this.props.habits} tags={this.props.tags} />
         </Grid>
 
-        <Grid item xs={6}>
-          {/* <Daily daily={this.props.daily} />  */}
-        </Grid>
+        
       </Grid>
     </div>
    )
