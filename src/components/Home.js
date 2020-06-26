@@ -18,7 +18,7 @@ class Home extends React.Component{
   }
 
   render(){
-   return(
+    return(
     <div className="Home">
       <Grid container spacing= {3}>
         

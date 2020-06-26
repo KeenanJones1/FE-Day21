@@ -41,7 +41,7 @@ const styles = (theme) => ({
     constructor(){
         super()
         this.state = {
-          formData: {
+          user: {
             password: '',
             repeatPassword: '',
         },
@@ -51,8 +51,8 @@ const styles = (theme) => ({
 
     componentDidMount() {
       ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
-          const { formData } = this.state;
-          if (value !== formData.password) {
+          const { user } = this.state;
+          if (value !== user.password) {
               return false;
           }
           return true;
@@ -60,8 +60,8 @@ const styles = (theme) => ({
   }
 
     handleInputChange = (event) => {
-      const { formData } = this.state;
-        formData[event.target.name] = event.target.value;
+      const { user } = this.state;
+        user[event.target.name] = event.target.value;
         if (event.target.name === 'password') {
             this.form.isFormValid(false);
         }
@@ -72,7 +72,7 @@ const styles = (theme) => ({
           })
         }
 
-        this.setState({ formData });
+        this.setState({ user });
         console.log(this.state)
     }
 
@@ -89,7 +89,7 @@ const styles = (theme) => ({
             {if(data.error){alert(data.error)}
                 else{
                     localStorage.setItem('token', data.token)
-                    this.props.history.push('/home')
+                    this.props.history.push('/')
                 }
             }
         )
@@ -103,7 +103,7 @@ const styles = (theme) => ({
 
     render(){
         const { classes } = this.props;
-        const { formData, submitted } = this.state;
+        const { user, submitted } = this.state;
 
         return (
           <Container component="main" maxWidth="xs">
@@ -117,7 +117,6 @@ const styles = (theme) => ({
               </Typography>
               <ValidatorForm    
               ref={r => (this.form = r)}
-              onSubmit={(event) => {this.handleForm(event)} } 
               className={classes.form} >
                 <Grid container spacing={2}>
                   
@@ -161,13 +160,14 @@ const styles = (theme) => ({
                       label="Repeat password"
                       validators={['isPasswordMatch', 'required']}
                       errorMessages={['password mismatch', 'this field is required']}
-                      value={formData.repeatPassword}
+                      value={user.repeatPassword}
                       autoFocus
                     />
                   
                   </Grid>
                 </Grid>
                 <Button
+                onClick={(event) => {this.handleForm(event)} } 
                   color="primary"
                   variant="contained"
                   type="submit"

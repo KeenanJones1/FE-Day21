@@ -70,6 +70,8 @@ class HabitsInput extends React.Component {
         }
       }
 
+      
+
       this.setState({
         title: '',
         difficulty: '',
