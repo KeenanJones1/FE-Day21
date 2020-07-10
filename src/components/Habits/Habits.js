@@ -6,13 +6,32 @@ import Habit from './Habit'
 import { Grid } from '@material-ui/core'
 import {withStyles} from '@material-ui/styles'
 
+const styles = theme => ({
+ container: {
+
+ },
+
+ title: {
+
+ },
+
+ input: {
+
+ },
+
+ habits: {
+ height: 10,
+ }
+
+})
+
 
 
 class Habits extends React.Component{
 
 
  render(){
-  const { habits } = this.props
+  const { habits, classes } = this.props
 
 
   const Habits = habits.map(
@@ -28,7 +47,7 @@ class Habits extends React.Component{
 
 
   return(
-   <Grid container alignItems='stretch'>
+   <Grid container id="habits" > 
     <h1>Your Habits</h1> 
     {Habits}
    </Grid>
@@ -37,4 +56,4 @@ class Habits extends React.Component{
 }
 
 
-export default Habits;
+export default withStyles(styles)(Habits);

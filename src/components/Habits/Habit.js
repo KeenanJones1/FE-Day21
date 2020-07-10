@@ -1,21 +1,11 @@
 import React from 'react'
-import TagsContainer from '../../containers/TagsContainer'
+// import TagsContainer from '../../containers/TagsContainer'
 import {deleteHabits, editHabit} from '../../actions/Habits'
 import {connect} from 'react-redux'
-import Dialog from '@material-ui/core/Dialog';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import {MenuItem, Select, Grid} from '@material-ui/core';
-import DialogTitle from '@material-ui/core/DialogTitle';
-
-
-
 
 // MUI STUFF
-import {Card, CardActions, CardContent, Typography, Checkbox, FormControlLabel, IconButton} from '@material-ui/core'
-import {Delete, Edit} from '@material-ui/icons'
+import { MenuItem, Select, Grid, Dialog, Button, TextField, DialogActions, DialogContent, Card, CardActions, CardContent, Typography, IconButton, Collapse } from '@material-ui/core';
+import {Delete, Edit, ExpandMore} from '@material-ui/icons'
 import withStyles from '@material-ui/core/styles/withStyles'
 
 
@@ -27,11 +17,16 @@ const styles = theme => ({
   backgroundColor: theme.palette.secondary.light,
   margin: 10,
   padding: 10,
+  // height: 100,
   minWidth: 275,
-  // maxWidth:
-
-
- }
+ },
+ expand: {
+  transform: 'rotate(0deg)',
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
+},
 
  
 
@@ -49,7 +44,9 @@ class Habit extends React.Component{
       note: '',
       difficulty: 'difficulty',
       type: 'BadHabit',
-      checked: true
+      checked: true,
+      expanded: false, 
+      setExpanded: false
     };
   }
 
@@ -94,6 +91,7 @@ handleInput = (event) => {
   console.log(this.state)
   this.setState({[event.target.id]: event.target.value})
 }
+
 handleSwitch = () => {
   if (this.state.type === 'BadHabit'){
     this.setState( prevState => {
@@ -112,27 +110,31 @@ handleSwitch = () => {
     }
   }
 
+  handleExpandClick = () => {
+    this.setState(prevState => {
+      return {expanded: !prevState.expanded}
+    })
+  }
+
+//   this.setState(prevState =>{
+//     return{
+//          ...prevState,
+//          counter : prevState.counter +1
+//     }
+//  })
+
  
 
 
 
  render(){
   const { habit, classes } = this.props
-  const {title, difficulty, note, checked, type} = this.state
+  const {title, difficulty, note, checked, type, expanded} = this.state
   return(
    <Card className={classes.card} >
     <CardContent>
       <Typography variant='subtitle1' >
         {habit.title}
-      </Typography>
-      <Typography variant='subtitle1' >
-        {habit.note}
-      </Typography>
-      <Typography variant='subtitle1' >
-        Level {habit.difficulty} difficulty
-      </Typography>
-      <Typography variant='subtitle1' >
-        {habit.type}
       </Typography>
     </CardContent>
     
@@ -144,7 +146,27 @@ handleSwitch = () => {
       <IconButton size="small" color="primary">
         <Edit onClick={() => this.handleClickOpen(habit)}/>
       </IconButton>
+
+      <IconButton size="small" color="primary" className={classes.expand}>
+        <ExpandMore onClick={() => this.handleExpandClick()}/>
+      </IconButton>
+
+
     </CardActions>
+
+    <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <CardContent>
+        <Typography variant='subtitle1' >
+          {habit.note}
+        </Typography>
+        <Typography variant='subtitle1' >
+          Level {habit.difficulty} difficulty
+        </Typography>
+        <Typography variant='subtitle1' >
+          {habit.type}
+        </Typography>
+        </CardContent>
+      </Collapse>
  
     {/* <TagsContainer /> */}
     <Dialog open={this.state.open} onClose={this.handleClose}>

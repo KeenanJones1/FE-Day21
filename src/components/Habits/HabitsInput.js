@@ -2,9 +2,7 @@ import React from 'react';
 import {
   connect
 } from 'react-redux'
-import {
-  addHabits
-} from '../../actions/Habits'
+import { addHabits } from '../../actions/Habits'
 
 // MUI STUFF
 import {
@@ -86,7 +84,7 @@ class HabitsInput extends React.Component {
 
 render(){
   return(
-<Grid container direction='column' justify='space-between' spacing={8} alignItems='center'>
+<Grid container direction='column' justify='space-between' spacing={8} alignItems='center' id="habit-input">
     <h1>
     Create New Habit 
     </h1>
@@ -135,6 +133,4 @@ render(){
     }
 
 
-    export default connect(mapStateToProps, {
-      addHabits
-    })(HabitsInput);
+    export default connect(mapStateToProps, { addHabits })(HabitsInput);

@@ -4,49 +4,24 @@ import HabitInput from '../components/Habits/HabitsInput.js'
 
 // MUI STUFF
 import {Grid} from '@material-ui/core'
-import withStyles from '@material-ui/core/styles/withStyles'
 
 
 
-const styles = theme => ({
-  container: {
-
-  },
-
-  title: {
-
-  },
-
-  input: {
-
-  },
-
-  habits: {
-  
-  }
-
-
-
-  
-
-})
 
 
 class HabitsContainer extends React.Component{
   
  render(){
-  console.log("Habits", this.props)
 
-  const { classes } = this.props
   return(
 
    <div>
     <Grid container spacing={9}>
-     <Grid item xs={12} className={classes.input}>
+     <Grid item xs={12} >
       <HabitInput />
      </Grid>
     
-     <Grid item xs={6} className={classes.habits}>
+     <Grid item xs={6} >
       <Habits habits={this.props.habits}/>
      </Grid>
     </Grid>
@@ -55,4 +30,4 @@ class HabitsContainer extends React.Component{
  }
 }
 
-export default withStyles(styles)(HabitsContainer)
+export default HabitsContainer
