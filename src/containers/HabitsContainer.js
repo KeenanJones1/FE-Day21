@@ -12,7 +12,6 @@ import {Grid} from '@material-ui/core'
 class HabitsContainer extends React.Component{
   
  render(){
-
   return(
 
    <div>

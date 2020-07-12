@@ -31,45 +31,18 @@ class HabitsInput extends React.Component {
 
     handleSwitch = () => {
       if (this.state.type === 'BadHabit') {
-        this.setState({
-          type: 'GoodHabit'
-        })
-      } else {
-        this.setState({
-          type: 'BadHabit'
-        })
-      }
+        this.setState({ type: 'GoodHabit' })} 
+      else { this.setState({ type: 'BadHabit'})}
     }
 
-    handleNote = (event) => {
-      this.setState({
-        note: event.target.value
-      })
-    }
+    handleNote = (event) => { this.setState({ note: event.target.value})}
 
-    handleTitle = (event) => {
-      this.setState({
-        title: event.target.value
-      })
-    }
+    handleTitle = (event) => { this.setState({ title: event.target.value})}
 
-    handleSelect = (event) => {
-      this.setState({
-        difficulty: event.target.value
-      })
-    }
+    handleSelect = (event) => { this.setState({ difficulty: event.target.value })};
 
     handleSubmit = () => {
-
-      const newState = {
-        state: {
-          ...this.state,
-          user_id: this.props.user_id
-        }
-      }
-
-      
-
+      const newState = { state: { ...this.state, user_id: this.props.user_id }}
       this.setState({
         title: '',
         difficulty: '',
@@ -77,17 +50,13 @@ class HabitsInput extends React.Component {
         type: 'BadHabit',
         user_id: ''
       })
-
-
-      this.props.addHabits(newState.state)
+    this.props.addHabits(newState.state)
     }
 
 render(){
   return(
 <Grid container direction='column' justify='space-between' spacing={8} alignItems='center' id="habit-input">
-    <h1>
-    Create New Habit 
-    </h1>
+    <h1>Create New Habit</h1>
     <TextField required name="title" 
     value={this.state.title}
     color="secondary"

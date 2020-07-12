@@ -32,8 +32,6 @@ class Habits extends React.Component{
 
  render(){
   const { habits, classes } = this.props
-
-
   const Habits = habits.map(
    habit => {
     return(

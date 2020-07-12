@@ -1,10 +1,10 @@
 export default function manageUsers(state = {
-  user: {email: "", password: "", id: "", admin: false, habits: [], daily: {}, token: ''}, loading: false}, action){
+  user: {email: "", password: "", id: "", admin: false, habits: [], daily: {}, token: ''}, loading: false, signedin: false}, action){
     switch(action.type){
 
     case 'SIGN_IN': 
       return {
-      ...state, user: {...state.user, token: action.token.token}, loading: 'done'
+      ...state, user: {...state.user, token: action.token.token}, loading: 'done', signedin: true
       }
 
       case 'GET_INFO': 
@@ -31,9 +31,12 @@ export default function manageUsers(state = {
       }
 
     case 'SIGN_OUT': 
-      return { 
-      // Remove token from localstorage and push to signin page
-      }
+      return state = {
+        user: {email: "", password: "", id: "", admin: false, habits: [], daily: {}, token: ''}, loading: false, signedin: false}
+        
+      
+        
+      
 
     default: 
     return state;

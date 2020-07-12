@@ -1,6 +1,6 @@
 import React from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Home from './components/Home'
 import Signup from './components/Signup'
@@ -13,27 +13,43 @@ const theme = createMuiTheme({
     primary: {main: '#486273', light: '#587E8C', contrastText: '#F2EC91'},
     secondary: {main: '#A67449', light: '#D9A25F', contrastText: '#00000f'},
   },
-  status: {
-    danger: 'orange',
-  },
+  status: { danger: 'orange' },
 });
 
-function App() {
-  return (
+class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      login: false
+    }
+  }
+
+  
+  render() {
+    return (
     <ThemeProvider theme={theme}>
     <div className="App">
       <Router>
         <Switch>
+        {/* { this.props.signedin || localStorage.getItem('token') ? '/' : '/signin'} */}
           <Route exact path='/' render= { (props) => <Home {...props} />} /> 
           <Route exact path='/signup' render= { (props) => <Signup {...props} />} /> 
           <Route exact path='/signin' render= { (props) => <Signin {...props} />} /> 
+          <Redirect to="/signin"/>
           {/* <Route exact path='/' render= { (props) => <DashBoard {...props} />} />  */}
         </Switch>
       </Router>
 
     </div>
     </ThemeProvider>
-  );
+   );
+  }
 }
 
-export default connect()(App);
+const mapStateToProps = (state) => {
+  return {
+    signedin: state.users.signedin
+  }
+}
+
+export default connect(mapStateToProps)(App);

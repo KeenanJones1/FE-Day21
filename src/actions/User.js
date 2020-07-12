@@ -18,18 +18,25 @@ export const fetchInfo = () => {
 
   const reqObj = {
     method: 'GET',
-    headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-              }
-}
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}}
 
   return (dispatch) => {
     fetch('http://localhost:3000/myuser', reqObj)
     .then(resp => resp.json())
-    .then(data => 
-      dispatch({type: 'GET_INFO', data})
+    .then(data => { if (data.error) { console.log(data.error)} else { return dispatch({type: 'GET_INFO', data})}}
     )
   }
+}
 
+// {if(data.error){alert(data.error)}
+// else{
+//     localStorage.setItem('token', data.token)
+//     this.props.history.push('/home')
+// }
+// }
+
+export const signOut = () => {
+  return (dispatch) => {
+    dispatch({type: 'SIGN_OUT'})
+  }
 }
