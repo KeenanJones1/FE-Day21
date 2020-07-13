@@ -23,7 +23,7 @@ const styles = theme => ({
   transform: 'rotate(0deg)',
   marginLeft: 'auto',
   transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
+  duration: theme.transitions.duration.shortest,
   }),
 },
 
@@ -45,7 +45,8 @@ class Habit extends React.Component{
       type: 'BadHabit',
       checked: true,
       expanded: false, 
-      setExpanded: false
+      setExpanded: false,
+      testing: true
     };
   }
 
