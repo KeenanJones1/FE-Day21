@@ -4,15 +4,13 @@ import {fetchInfo, signOut} from '../actions/User'
 
 import HabitsContainer  from '../containers/HabitsContainer.js'
 import  Daily  from '../containers/Daily.js'
-import DashBoard  from '../containers/DashBoard.js'
+// import DashBoard  from '../containers/DashBoard.js'
 
 // MUI STUFF
 import { Grid, Button } from '@material-ui/core'
 
 class Home extends React.Component{
-  constructor(){
-   super()
-  }
+  
 
    handleClick = () => {
     localStorage.removeItem('token')
@@ -29,16 +27,15 @@ class Home extends React.Component{
     return(
     <div className="Home">
       <Grid container spacing= {3}>
-        
-
         <Grid item xs={6}>
           <HabitsContainer habits={this.props.habits} tags={this.props.tags} />
         </Grid>
 
-      {/* DailyContainer */}
+        <Grid>
+          <Daily/>
+        </Grid>
       </Grid>
-
-      <Button onClick={this.handleClick}>Hello</Button>
+      <Button onClick={this.handleClick}>Logout</Button>
     </div>
    )
   }

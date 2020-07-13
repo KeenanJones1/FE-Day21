@@ -31,7 +31,7 @@ class Habits extends React.Component{
 
 
  render(){
-  const { habits, classes } = this.props
+  const { habits } = this.props
   const Habits = habits.map(
    habit => {
     return(
@@ -46,7 +46,6 @@ class Habits extends React.Component{
 
   return(
    <Grid container id="habits" > 
-    <h1>Your Habits</h1> 
     {Habits}
    </Grid>
   )

@@ -17,7 +17,6 @@ const styles = theme => ({
   backgroundColor: theme.palette.secondary.light,
   margin: 10,
   padding: 10,
-  // height: 100,
   minWidth: 275,
  },
  expand: {
@@ -116,12 +115,6 @@ handleSwitch = () => {
     })
   }
 
-//   this.setState(prevState =>{
-//     return{
-//          ...prevState,
-//          counter : prevState.counter +1
-//     }
-//  })
 
  
 
@@ -129,7 +122,7 @@ handleSwitch = () => {
 
  render(){
   const { habit, classes } = this.props
-  const {title, difficulty, note, checked, type, expanded} = this.state
+  const {title, difficulty, note, expanded} = this.state
   return(
    <Card className={classes.card} >
     <CardContent>

@@ -63,8 +63,7 @@ class Signin extends React.Component {
   }
 
   handleLoading = () => {
-    if(this.props.loading === 'done'){
-      
+    if(this.props.loading === 'done' && this.props.signedin === true){
       localStorage.setItem('token', this.props.token)
       this.props.history.push('/')
       return(
@@ -84,7 +83,7 @@ class Signin extends React.Component {
 
   render() {
     const { classes } = this.props
-    console.log(this.props)
+    console.log("Signedin", this.props)
     if(this.props.loading === false){
       return ( 
         <Container component = "main" maxWidth = "xs" >
@@ -160,7 +159,8 @@ const mapStateToProps = (state) => {
   const { users } = state
   return{
     loading: users.loading,
-    token: users.user.token
+    token: users.user.token,
+    signedin: users.signedin
   }
 }
 

@@ -12,7 +12,7 @@ import {
   Select,
   Switch,
   MenuItem,
-  FormControlLabel
+  FormControlLabel,
 } from '@material-ui/core'
 
 
@@ -51,11 +51,12 @@ class HabitsInput extends React.Component {
         user_id: ''
       })
     this.props.addHabits(newState.state)
+    this.props.handleClose()
     }
 
 render(){
   return(
-<Grid container direction='column' justify='space-between' spacing={8} alignItems='center' id="habit-input">
+<Grid container direction='column' justify='space-between' spacing={8} alignItems='center' id="habit-input" component="form">
     <h1>Create New Habit</h1>
     <TextField required name="title" 
     value={this.state.title}

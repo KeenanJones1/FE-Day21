@@ -9,9 +9,10 @@ import { Card } from '@material-ui/core'
 
 const styles = theme => ({
   container: {
-   height: '80vh',
+   height: '60vh',
    backgroundColor: theme.palette.secondary.light,
-   width: '40vw'
+   width: '30vw',
+   marginBottom: '10vh',
   }
 
 })
