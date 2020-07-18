@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {fetchInfo, signOut} from '../actions/User'
 
 import HabitsContainer  from '../containers/HabitsContainer.js'
-import  Daily  from '../containers/Daily.js'
+import  DailyContainer  from '../containers/DailyContainer.js'
 // import DashBoard  from '../containers/DashBoard.js'
 
 // MUI STUFF
@@ -23,7 +23,7 @@ class Home extends React.Component{
   }
 
   render(){
-    console.log("Home", this.props)
+    console.log("Home props", this.props)
     return(
     <div className="Home">
       <Grid container spacing= {3}>
@@ -32,7 +32,7 @@ class Home extends React.Component{
         </Grid>
 
         <Grid>
-          <Daily daily={this.props.daily}/>
+          <DailyContainer daily={this.props.daily}/>
         </Grid>
       </Grid>
       <Button onClick={this.handleClick}>Logout</Button>

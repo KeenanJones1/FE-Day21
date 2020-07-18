@@ -1,5 +1,5 @@
 export default function manageUsers(state = {
-  user: {email: "", password: "", id: "", admin: false, habits: [], daily: [], token: ''}, loading: false, signedin: false}, action){
+  user: {email: "", password: "", id: "", admin: false, habits: [], daily: { habits: []}, token: ''}, loading: false, signedin: false}, action){
     switch(action.type){
 
     case 'SIGN_IN': 

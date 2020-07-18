@@ -1,11 +1,13 @@
 import React from 'react'
-import Dailies from '../components/Daily/Dallies'
+import Dailies from '../components/Daily/Dailies'
 
 
 // MUI STUFF
 import withStyles from '@material-ui/styles/withStyles'
 import { Card } from '@material-ui/core'
 
+
+// Figure out why map isnt working for props.daily.habits
 
 const styles = theme => ({
   container: {
@@ -18,12 +20,13 @@ const styles = theme => ({
 })
 
 
-class Daily extends React.Component {
+class DailyContainer extends React.Component {
 
 
 
  render() {
   const { classes } = this.props
+  // console.log("Daily props", this.props)
   return ( 
    <div>
     <h1> Your Daily Habits  </h1>
@@ -35,6 +38,6 @@ class Daily extends React.Component {
  }
 }
 
-export default withStyles(styles)(Daily)
+export default withStyles(styles)(DailyContainer)
 
 // export default connect(null, {deleteHabits, editHabit, moveHabit})(withStyles(styles)(Habit));
