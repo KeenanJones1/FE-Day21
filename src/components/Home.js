@@ -32,7 +32,7 @@ class Home extends React.Component{
         </Grid>
 
         <Grid>
-          <Daily/>
+          <Daily daily={this.props.daily}/>
         </Grid>
       </Grid>
       <Button onClick={this.handleClick}>Logout</Button>

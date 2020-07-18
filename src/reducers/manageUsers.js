@@ -1,5 +1,5 @@
 export default function manageUsers(state = {
-  user: {email: "", password: "", id: "", admin: false, habits: [], daily: {}, token: ''}, loading: false, signedin: false}, action){
+  user: {email: "", password: "", id: "", admin: false, habits: [], daily: [], token: ''}, loading: false, signedin: false}, action){
     switch(action.type){
 
     case 'SIGN_IN': 
@@ -20,6 +20,7 @@ export default function manageUsers(state = {
 
 
       case 'SET_HABITS':
+        
       return{ 
         ...state, user: {...state.user, habits: action.habits.habits}
       }
@@ -34,7 +35,11 @@ export default function manageUsers(state = {
       return state = {
         user: {email: "", password: "", id: "", admin: false, habits: [], daily: {}, token: ''}, loading: false, signedin: false}
         
-      
+    
+    case 'MOVE_HABITS': 
+    return{
+      ...state, user: {...state.user, daily: [action.dailyhabits.habits]}
+    }
         
       
 

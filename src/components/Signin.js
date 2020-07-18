@@ -1,19 +1,11 @@
 import React from 'react';
+import Title from './Title'
 import {connect} from 'react-redux'
 import { fetchUser } from '../actions/User'
 import withStyles from '@material-ui/core/styles/withStyles';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+import {Avatar, Button, TextField, Checkbox, Link, Grid, Typography, Container, FormControlLabel} from '@material-ui/core/';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 
 
 const styles = (theme) => ({
@@ -83,9 +75,10 @@ class Signin extends React.Component {
 
   render() {
     const { classes } = this.props
-    console.log("Signedin", this.props)
     if(this.props.loading === false){
       return ( 
+        <div id="signin">
+        <Title/>
         <Container component = "main" maxWidth = "xs" >
           <CssBaseline / >
           <div className = { classes.paper} >
@@ -138,10 +131,8 @@ class Signin extends React.Component {
                 </Grid> 
               </form> 
           </div> 
-          <Box mt = {8}>
-            
-          </Box> 
           </Container>
+        </div>
         );
     }
     

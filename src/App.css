@@ -55,4 +55,15 @@ width: 20vw;
 margin: 5%;
 }
 
+#title{
+font-weight: bold;
+}
 
+#title-container{
+background-color:#F2EC91 ;
+}
+
+#signin{
+  background-color:#F2EC91 ;
+  height: 100vh;
+}

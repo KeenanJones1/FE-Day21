@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Dailies from '../components/Daily/Dallies'
 
 
 // MUI STUFF
@@ -28,7 +28,7 @@ class Daily extends React.Component {
    <div>
     <h1> Your Daily Habits  </h1>
     <Card className={classes.container}>
-     
+     <Dailies daily={this.props.daily}/>
     </Card >
    </div>
   )
@@ -36,3 +36,5 @@ class Daily extends React.Component {
 }
 
 export default withStyles(styles)(Daily)
+
+// export default connect(null, {deleteHabits, editHabit, moveHabit})(withStyles(styles)(Habit));
