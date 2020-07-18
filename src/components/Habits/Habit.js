@@ -154,17 +154,17 @@ class Habit extends React.Component {
           </Typography> 
         </CardContent>
         <CardActions >
-          <IconButton size = "small" color = "primary" className = { classes.expand }>
-            <AddCircle onClick = { () => this.handleDailyHabit(habit.id) }/> 
+          <IconButton size = "small" color = "primary" className = { classes.expand } onClick = { () => this.handleDailyHabit(habit.id) }>
+            <AddCircle /> 
           </IconButton>
-          <IconButton size = "small" color = "primary" >
-            <Delete onClick = { this.handleDelete }/> 
+          <IconButton size = "small" color = "primary" onClick = { this.handleDelete }>
+            <Delete /> 
           </IconButton>
-          <IconButton size = "small" color = "primary">
-            <Edit onClick = { () => this.handleClickOpen(habit) }/> 
+          <IconButton size = "small" color = "primary" onClick = { () => this.handleClickOpen(habit) }>
+            <Edit /> 
           </IconButton>
-          <IconButton size = "small" color = "primary" className = { classes.expand }>
-            <ExpandMore onClick = { () => this.handleExpandClick() }/> 
+          <IconButton size = "small" color = "primary" className = { classes.expand } onClick = { () => this.handleExpandClick() }>
+            <ExpandMore /> 
           </IconButton>
         </CardActions>
         <Collapse in = { expanded } timeout = "auto" unmountOnExit>

@@ -29,8 +29,9 @@ const styles = theme => ({
 
 class Habits extends React.Component{
 
-
  render(){
+  console.log("Habits props", this.props)
+
   const { habits } = this.props
   const Habits = habits.map(
    habit => {

@@ -37,12 +37,12 @@ class HabitsContainer extends React.Component{
    <div>
     <Grid container spacing={1} direction='column'>
 
-     <Grid item xs={12} sm={6} direction="row">
+     <Grid container item xs={12} sm={6} direction="row">
      <Typography variant="h3" id="habits-title">Your Habits</Typography> 
       <Tooltip title="Create a Habit">
-       <IconButton onClick={this.handleOpen} color="secondary" id="habit-button">
-       <AddCircle/>
-      </IconButton>
+        <IconButton onClick={this.handleOpen} color="secondary" id="habit-button">
+          <AddCircle/>
+        </IconButton>
       </Tooltip>
      </Grid>
 
@@ -51,9 +51,9 @@ class HabitsContainer extends React.Component{
      
     <Dialog open={this.state.open} fullWidth id="habit-modal">
      <HabitInput handleClose={this.handleClose}/>
-     <IconButton onClick={this.handleClose}>
-      <Cancel/>
-     </IconButton>
+      <IconButton onClick={this.handleClose}>
+        <Cancel/>
+      </IconButton>
     </Dialog>
 
     
