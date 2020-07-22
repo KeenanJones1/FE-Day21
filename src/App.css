@@ -67,3 +67,7 @@ background-color:#F2EC91 ;
   background-color:#F2EC91 ;
   height: 100vh;
 }
+
+#daily-habits{
+  overflow-y: scroll;
+}
