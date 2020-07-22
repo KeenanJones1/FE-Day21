@@ -14,9 +14,6 @@ code {
 }
 
 #habit-input{
-  position: relative;
-  /* top: 15vh;
-  left: 120% ; */
   height: 80vh;
   margin-top: 10%;
   margin-bottom:10% ;
@@ -25,10 +22,5 @@ code {
 
 #habits{
   display: inline-block;
-  position: relative;
-  /* top: 20vh; */
 }
 
-/* #habit-button{
-  float: right;
-} */
