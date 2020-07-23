@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Card, CardContent, CardActions, Dialog, DialogActions, Typography, IconButton, Checkbox} from '@material-ui/core'
-import { AddCircle, RemoveCircle } from '@material-ui/icons'
+import { removeDaily, completeDaily} from '../../actions/Dailies'
+import { RemoveCircle } from '@material-ui/icons'
 import withStyles from '@material-ui/core/styles/withStyles'
 
 
@@ -23,8 +24,29 @@ const styles = theme => ({
 })
 
 class Daily extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      completed: false
+    }
+  }
+
+  handleButton = (id) => {
+    this.props.removeDaily(id)
+  }
+
+  handleChange = (id) => {
+    this.setState(prevState => ({
+      completed: !prevState.completed
+    }))
+    this.props.completeDaily(id, this.state.completed)
+  }
+
+
 render() {
   const {habit, classes}=this.props
+
+  
   return (
   <Card className={classes.card}>
     <CardContent>
@@ -33,10 +55,10 @@ render() {
     </CardContent>
 
     <CardActions>
-      <IconButton>
+      <IconButton onClick = {() => this.handleButton(habit.id)}>
         <RemoveCircle/>
       </IconButton>
-      <Checkbox/>
+      <Checkbox onChange= { () => this.handleChange(habit.id)} />
         <Typography>
           Completed?
         </Typography>
@@ -55,4 +77,4 @@ render() {
  }
 }
 
-export default connect(null, {})(withStyles(styles)(Daily));
+export default connect(null, {removeDaily, completeDaily})(withStyles(styles)(Daily));

@@ -38,7 +38,7 @@ class HabitsContainer extends React.Component{
     <Grid container spacing={1} direction='column'>
 
      <Grid container item xs={12} sm={6} direction="row">
-     <Typography variant="h3" id="habits-title">Your Habits</Typography> 
+     <Typography variant="h3" id="habits-title"> Habits</Typography> 
       <Tooltip title="Create a Habit">
         <IconButton onClick={this.handleOpen} color="secondary" id="habit-button">
           <AddCircle/>

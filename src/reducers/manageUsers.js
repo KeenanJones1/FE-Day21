@@ -3,10 +3,10 @@ export default function manageUsers(state = {
     switch(action.type){
 
     case 'SIGN_IN': 
-      return {
+      return{
       ...state, user: {...state.user, token: action.token.token}, loading: 'done', signedin: true
       }
-
+      
       case 'GET_INFO': 
       const { data } = action
         return{
@@ -37,9 +37,11 @@ export default function manageUsers(state = {
         
     
     case 'MOVE_HABITS': 
+    console.log(state)
     return{
-      ...state, user: {...state.user, daily: [action.dailyhabits.habits]}
+      ...state, user: {...state.user, daily: {...state.user.daily, habits: action.dailyhabits.habits}}
     }
+
         
       
 

@@ -1,13 +1,7 @@
 import React from 'react'
 // import TagsContainer from '../../containers/TagsContainer'
-import {
-  deleteHabits,
-  editHabit,
-  moveHabit
-} from '../../actions/Habits'
-import {
-  connect
-} from 'react-redux'
+import { deleteHabits, editHabit, moveHabit } from '../../actions/Habits'
+import { connect } from 'react-redux'
 
 // MUI STUFF
 import { 
