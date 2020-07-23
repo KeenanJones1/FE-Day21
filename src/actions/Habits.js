@@ -1,7 +1,7 @@
 const token = localStorage.getItem('token')
 const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}
 
-export const addHabits = (state, id) => {
+export const addHabits = (state) => {
 let reqObj = {
   method: 'POST', 
   headers: { 'Content-Type': 'application/json'},
@@ -15,12 +15,10 @@ return (dispatch) => {
 }
 
 export const deleteHabits = (id) => {
-
   let reqObj = {
     method: 'DELETE',
     headers
   }
-
   return (dispatch) => {
     fetch( `http://localhost:3000/habits/${id}`, reqObj)
     .then(resp => resp.json())
@@ -51,7 +49,6 @@ export const moveHabit = (id) => {
   return (dispatch) => {
     fetch(`http://localhost:3000/daily_habits`, reqObj)
     .then(resp => resp.json())
-    // .then(dailyhabits => console.log(dailyhabits))
     .then(dailyhabits => dispatch({type: 'MOVE_HABITS', dailyhabits}))
   }
 

@@ -29,12 +29,6 @@ export const fetchInfo = () => {
   }
 }
 
-// {if(data.error){alert(data.error)}
-// else{
-//     localStorage.setItem('token', data.token)
-//     this.props.history.push('/home')
-// }
-// }
 
 export const signOut = () => {
   return (dispatch) => {

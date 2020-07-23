@@ -4,10 +4,8 @@ import Dailies from '../components/Daily/Dailies'
 
 // MUI STUFF
 import withStyles from '@material-ui/styles/withStyles'
-import { Paper, Grid} from '@material-ui/core'
+import { Grid, Typography} from '@material-ui/core'
 
-
-// Figure out why map isnt working for props.daily.habits
 
 const styles = theme => ({
   container: {
@@ -23,19 +21,18 @@ const styles = theme => ({
 
 class DailyContainer extends React.Component {
 
-
-
- render() {
+  render() {
   const { classes } = this.props
+  console.log("DH", this.props)
   return ( 
-   <div>
-    <h1> Your Daily Habits  </h1>
-    <Grid  className={classes.container} wrap id="daily-habits">
-      <Dailies daily={this.props.daily} />
-    </Grid >
-   </div>
-  )
- }
+    <div>
+      <Typography variant="h2"> Daily Habits </Typography>
+      <Grid className={classes.container} id="daily-habits">
+        <Dailies daily={this.props.daily} />
+      </Grid >
+    </div>
+    )
+  }
 }
 
 export default withStyles(styles)(DailyContainer)
