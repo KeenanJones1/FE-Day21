@@ -69,9 +69,7 @@ const styles = (theme) => ({
               ...this.state, [event.target.name]: event.target.value
           })
         }
-
         this.setState({ user });
-        console.log(this.state)
     }
 
     handleForm = (event) => {
@@ -84,7 +82,7 @@ const styles = (theme) => ({
         fetch('http://localhost:3000/signup', signupObj)
         .then( resp => resp.json())
         .then(data =>
-            {if(data.error){alert(data.error)}
+            { if(data.error){alert(data.error)}
                 else{
                     localStorage.setItem('token', data.token)
                     this.props.history.push('/')
@@ -146,7 +144,6 @@ const styles = (theme) => ({
                     />
                   </Grid>
                   <Grid item xs={12}>
-                
                     <TextValidator
                       onChange={(event) => {this.handleInputChange(event)}}
                       name="repeatPassword"

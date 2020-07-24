@@ -1,7 +1,7 @@
 export default function manageUsers(state = {
   user: {email: "", password: "", id: "", admin: false, habits: [], daily: { habits: []}, token: ''}, loading: false, signedin: false}, action){
     switch(action.type){
-
+      
     case 'SIGN_IN': 
       return{
       ...state, user: {...state.user, token: action.token.token}, loading: 'done', signedin: true
@@ -9,8 +9,9 @@ export default function manageUsers(state = {
       
       case 'GET_INFO': 
       const { data } = action
+      console.log("Get info", action)
         return{
-          ...state, user: {...state.user, habits: data.habits, daily: data.daily, admin: data.admin, id: data.id}
+          ...state, user: {...state.user, habits: data.habits, daily: { habits: []}, id: data.id}
         }
 
       case 'ADD_HABIT': 
@@ -33,11 +34,11 @@ export default function manageUsers(state = {
 
     case 'SIGN_OUT': 
       return state = {
-        user: {email: "", password: "", id: "", admin: false, habits: [], daily: {}, token: ''}, loading: false, signedin: false}
+        user: {email: "", password: "", id: "", admin: false, habits: [], daily: { habits: [] }, token: ''}, loading: false, signedin: false}
         
     
     case 'MOVE_HABITS': 
-    console.log(state)
+    console.log(action)
     return{
       ...state, user: {...state.user, daily: {...state.user.daily, habits: action.dailyhabits.habits}}
     }

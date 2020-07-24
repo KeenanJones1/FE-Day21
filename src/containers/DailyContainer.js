@@ -23,7 +23,7 @@ class DailyContainer extends React.Component {
 
   render() {
   const { classes } = this.props
-  console.log("DH", this.props)
+  console.log("DH", this.props.daily)
   return ( 
     <div>
       <Typography variant="h2"> Daily Habits </Typography>

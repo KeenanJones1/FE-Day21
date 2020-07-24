@@ -31,18 +31,15 @@ class App extends React.Component {
     <div className="App">
       <Router>
         <Switch>
-        {/* { this.props.signedin || localStorage.getItem('token') ? '/' : '/signin'} */}
           <Route exact path='/' render= { (props) => <Home {...props} />} /> 
           <Route exact path='/signup' render= { (props) => <Signup {...props} />} /> 
           <Route exact path='/signin' render= { (props) => <Signin {...props} />} /> 
           <Redirect to="/signin"/>
-          {/* <Route exact path='/' render= { (props) => <DashBoard {...props} />} />  */}
         </Switch>
       </Router>
-
     </div>
     </ThemeProvider>
-   );
+    );
   }
 }
 
