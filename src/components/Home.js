@@ -12,7 +12,7 @@ import { Grid, Button } from '@material-ui/core'
 class Home extends React.Component{
   
 
-   handleClick = () => {
+  handleClick = () => {
     localStorage.removeItem('token')
     this.props.signOut()
     this.props.history.push('/signin')
@@ -23,7 +23,6 @@ class Home extends React.Component{
   }
 
   render(){
-    console.log("Home props", this.props)
     return(
     <div className="Home">
       <Grid container spacing= {3}>
