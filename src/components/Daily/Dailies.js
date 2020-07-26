@@ -6,7 +6,7 @@ class Dailies extends React.Component{
  render(){
 
   const { habits } = this.props.daily
-  console.log("habits", this.props.daily.habits)
+  console.log("habits", this.props.daily)
   const Habits = habits.map(
    habit => {
     return(
