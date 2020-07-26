@@ -4,7 +4,7 @@ const headers = { 'Content-Type': 'application/json', 'Authorization': `Bearer $
 export const addHabits = (state) => {
 let reqObj = {
   method: 'POST', 
-  headers: { 'Content-Type': 'application/json'},
+  headers: headers,
   body: JSON.stringify({habit: state})
 }
 return (dispatch) => {
@@ -17,19 +17,21 @@ return (dispatch) => {
 export const deleteHabits = (id) => {
   let reqObj = {
     method: 'DELETE',
-    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}
+    headers: headers
   }
   return (dispatch) => {
     fetch( `http://localhost:3000/habits/${id}`, reqObj)
     .then(resp => resp.json())
     .then(habits => dispatch({type: 'SET_HABITS', habits}))
+    .catch(data => alert(data.message))
+    // .then(data => console.log(data))
   }
 }
 
 export const editHabit = (state, id) => {
   let reqObj = {
     method: 'PATCH', 
-    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
+    headers: headers,
     body: JSON.stringify({habit: state})
   }
 
