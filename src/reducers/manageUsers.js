@@ -11,7 +11,7 @@ export default function manageUsers(state = {
       const { data } = action
       console.log("Get info", action)
         return{
-          ...state, user: {...state.user, habits: data.habits, daily: { habits: []}, id: data.id}
+          ...state, user: {...state.user, habits: data.habits, daily: { habits: data.daily.habits}, id: data.id}
         }
 
       case 'ADD_HABIT': 
@@ -21,7 +21,6 @@ export default function manageUsers(state = {
 
 
       case 'SET_HABITS':
-        
       return{ 
         ...state, user: {...state.user, habits: action.habits.habits}
       }
@@ -38,9 +37,9 @@ export default function manageUsers(state = {
         
     
     case 'MOVE_HABITS': 
-    console.log(action)
+    console.log("Move Habits", action.dailyhabits.daily_habits)
     return{
-      ...state, user: {...state.user, daily: {...state.user.daily, habits: action.dailyhabits.habits}}
+      ...state, user: {...state.user, daily: {...state.user.daily, habits: action.dailyhabits.daily_habits}}
     }
 
         

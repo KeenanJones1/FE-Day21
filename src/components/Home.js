@@ -26,15 +26,15 @@ class Home extends React.Component{
     return(
     <div className="Home">
       <Grid container spacing= {3}>
-        <Grid item xs={6}>
+        <Grid item xs={6} class="container">
           <HabitsContainer habits={this.props.habits} tags={this.props.tags} />
         </Grid>
 
-        <Grid>
+        <Grid class="container">
           <DailyContainer daily={this.props.daily}/>
         </Grid>
       </Grid>
-      <Button onClick={this.handleClick}>Logout</Button>
+      <Button onClick={this.handleClick} id= "logout">Logout</Button>
     </div>
    )
   }

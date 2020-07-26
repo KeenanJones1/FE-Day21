@@ -11,7 +11,8 @@ export const removeDaily = (id) => {
  return (dispatch) => {
   fetch(`http://localhost:3000/remove_daily`, reqObj)
   .then(resp => resp.json())
-  .then(data => dispatch({type: 'GET_INFO', data}))
+  .then(dailyhabits => dispatch({type: 'MOVE_HABITS', dailyhabits}))
+  // .then(data => console.log("remove daily", data))
   .catch(data => alert(data.message))
  }
 }
@@ -31,11 +32,3 @@ export const completeDaily = (id, state) => {
   .catch(data => alert(data.message))
  }
 }
-
-
-// export const uncompleteDaily = (id) => {
-//  console.log(id)
-//  const reqObj = {
-
-//  }
-// }

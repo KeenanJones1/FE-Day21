@@ -11,8 +11,7 @@ const styles = theme => ({
   container: {
     maxHeight: '70vh',
     backgroundColor: theme.palette.secondary.light,
-    width: '30vw',
-    maxWidth: '60vw',
+    maxWidth: '70vw',
     marginBottom: '10vh',
   }
 

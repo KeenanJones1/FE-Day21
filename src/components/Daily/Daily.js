@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Card, CardContent, CardActions, Dialog, DialogActions, Typography, IconButton, Checkbox} from '@material-ui/core'
+import {Card, CardContent, CardActions,Typography, IconButton, Checkbox} from '@material-ui/core'
 import { removeDaily, completeDaily} from '../../actions/Dailies'
 import { RemoveCircle } from '@material-ui/icons'
 import withStyles from '@material-ui/core/styles/withStyles'
@@ -44,6 +44,7 @@ class Daily extends React.Component {
 
 
 render() {
+  
   const {habit, classes}=this.props
 
   
@@ -64,14 +65,6 @@ render() {
         </Typography>
       
     </CardActions>
-
-
-  <Dialog>
-    <DialogActions>
-
-    </DialogActions>
-  </Dialog>
-
   </Card>
   )
  }
