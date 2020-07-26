@@ -21,6 +21,7 @@ export default function manageUsers(state = {
 
 
       case 'SET_HABITS':
+        console.log(action)
       return{ 
         ...state, user: {...state.user, habits: action.habits.habits}
       }

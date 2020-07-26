@@ -4,12 +4,7 @@ import { deleteHabits, editHabit, moveHabit } from '../../actions/Habits'
 import { connect } from 'react-redux'
 
 // MUI STUFF
-import { 
-  MenuItem, Select, Grid, Dialog, 
-  Button, TextField, DialogActions, 
-  DialogContent, Card, CardActions,
-  CardContent, Typography, IconButton, Collapse
-} from '@material-ui/core';
+import { MenuItem, Select, Grid, Dialog, Button, TextField, DialogActions, DialogContent, Card, CardActions, CardContent, Typography, IconButton, Collapse } from '@material-ui/core';
 
 import { Delete, Edit, ExpandMore, AddCircle } from '@material-ui/icons'
 import withStyles from '@material-ui/core/styles/withStyles'
