@@ -1,10 +1,9 @@
 export const fetchUser = (state) => {
-const token = localStorage.getItem('token')
-let reqObj = {
-  method: 'POST', 
-  headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
-  body: JSON.stringify(state)}
-
+  const token = localStorage.getItem('token')
+  let reqObj = {
+    method: 'POST', 
+    headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`},
+    body: JSON.stringify(state)}
   return (dispatch) => { dispatch({type: 'FETCH_USER'});
     fetch('http://localhost:3000/auth',reqObj)
     .then( resp => resp.json() )
@@ -18,7 +17,7 @@ export const fetchInfo = () => {
   const reqObj = {
     method: 'GET',
     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}}
-    return (dispatch) => {
+  return (dispatch) => {
     fetch('http://localhost:3000/myuser', reqObj)
     .then(resp => resp.json())
     .then(data => {  (data.error) ? alert(data.error) :  dispatch({type: 'GET_INFO', data})}

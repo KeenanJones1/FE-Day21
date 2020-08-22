@@ -1,11 +1,7 @@
 import React from 'react'
-// import TagsContainer from '../../containers/TagsContainer'
 import { deleteHabits, editHabit, moveHabit } from '../../actions/Habits'
 import { connect } from 'react-redux'
-
-// MUI STUFF
 import { MenuItem, Select, Grid, Dialog, Button, TextField, DialogActions, DialogContent, Card, CardActions, CardContent, Typography, IconButton, Collapse } from '@material-ui/core';
-
 import { Delete, Edit, ExpandMore, AddCircle } from '@material-ui/icons'
 import withStyles from '@material-ui/core/styles/withStyles'
 
@@ -138,12 +134,11 @@ class Habit extends React.Component {
     return ( 
       <Card className = {classes.card}>
         <CardContent>
-          <Typography variant='subtitle1'> 
-            { habit.title } 
-          </Typography> 
+          <Typography variant='subtitle1'>{ habit.title }</Typography> 
         </CardContent>
-        <CardActions >
-          <IconButton size = "small" color = "primary" className = { classes.expand } onClick = { () => this.handleDailyHabit(habit.id) }>
+        <CardActions>
+          <IconButton size="small" color="primary" className={classes.expand} 
+            onClick={()=>this.handleDailyHabit(habit.id)}>
             <AddCircle /> 
           </IconButton>
           <IconButton size = "small" color = "primary" onClick = { this.handleDelete }>
@@ -163,8 +158,6 @@ class Habit extends React.Component {
           <Typography variant='subtitle1'>{ habit.type }</Typography> 
           </CardContent> 
         </Collapse>
-
-      {/* <TagsContainer /> */ } 
         <Dialog open = { this.state.open } onClose={this.handleClose}>
           <DialogContent>
             <Grid container direction = 'column' justify='space-between' spacing={3} alignItems='center'>
@@ -184,14 +177,9 @@ class Habit extends React.Component {
               </Select> 
             </Grid> 
           </DialogContent>
-
-            <DialogActions >
-              <Button onClick = { this.handleClose }> 
-                Cancel 
-              </Button> 
-              <Button onClick = { () => this.handleEditSubmit(habit.id) }> 
-                Submit 
-              </Button> 
+            <DialogActions>
+              <Button onClick = { this.handleClose }>Cancel</Button> 
+              <Button onClick = { () => this.handleEditSubmit(habit.id) }>Submit</Button> 
             </DialogActions>  
           </Dialog> 
       </Card>
