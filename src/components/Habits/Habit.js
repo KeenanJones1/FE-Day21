@@ -6,6 +6,8 @@ import { Delete, Edit, ExpandMore, AddCircle } from '@material-ui/icons'
 import withStyles from '@material-ui/core/styles/withStyles'
 
 
+import { Delete, Edit, ExpandMore, AddCircle } from '@material-ui/icons'
+import withStyles from '@material-ui/core/styles/withStyles'
 
 const styles = theme => ({
   card: {
